@@ -17,7 +17,7 @@ public class AuthTokenProvider {
 
     }
 
-    public static String getToken(Roles role) throws IOException {
+    public static String getToken(Roles role){
 
         //I want to make the request for loginAPI and we want to extract token and print it in on console
 
