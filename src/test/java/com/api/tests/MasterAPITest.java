@@ -8,7 +8,7 @@ import static com.api.utils.ConfigManager.*;
 
 import static org.hamcrest.Matchers.*;
 
-import com.api.utils.ConfigManager;
+
 import io.restassured.module.jsv.JsonSchemaValidator;
 import org.testng.annotations.Test;
 
@@ -48,7 +48,7 @@ public class MasterAPITest {
     @Test
     public void countAPITest_InvalidAuthToken() throws IOException {
         given()
-                .baseUri(ConfigManager.getProperty("BASE_URI"))
+                .baseUri(getProperty("BASE_URI"))
                 .and()
                 .header("Authorization","")
                 .log().uri()

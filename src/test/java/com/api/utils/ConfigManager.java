@@ -16,6 +16,7 @@ public class ConfigManager {
     static{
         env = System.getProperty("env","qa");
         env = env.toLowerCase().trim();
+        System.out.println("Running test in Env "+env);
         //This arrow operator supports Java 14 onwards for switch case
         path = switch (env) {
             case "dev" -> "config/config.dev.properties";
