@@ -1,5 +1,9 @@
 name: Pheonix Test Automation Workflow
 
+permissions:
+  contents: read
+  security-events: write
+
 on:
   push:
     branches: [ "master" ]
