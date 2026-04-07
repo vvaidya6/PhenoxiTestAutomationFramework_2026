@@ -21,12 +21,6 @@ jobs:
         cache: maven
     - name: Execute Test Automation Framework
       run: mvn clean test -DsuiteXmlFile=testng.xml -Denv=qa
-        
-
-
-        
-    - name: Build with Maven
-      run: mvn -B package --file pom.xml
 
     # Optional: Uploads the full dependency graph to GitHub to improve the quality of Dependabot alerts this repository can receive
     - name: Update dependency graph
