@@ -5,6 +5,8 @@ on:
     branches: [ "master" ]
   pull_request:
     branches: [ "master" ]
+  schedule: #Set the CRON for midnight IST -----UTC
+   - cron: "30 18 * * *"
 
 jobs:
   test:
