@@ -2,6 +2,8 @@ package com.api.tests;
 
 import com.api.pojo.UserCredentials;
 import static com.api.utils.ConfigManager.*;
+
+import com.api.utils.SpecUtils;
 import io.restassured.http.ContentType;
 
 import org.testng.annotations.Test;
@@ -21,26 +23,12 @@ public class LoginAPITest {
         @Test
          public void loginTest() throws IOException {
                 given().
-                        baseUri(getProperty("BASE_URI"))
-                        .and()
-                        .contentType(ContentType.JSON)
-                        .and()
-                        .accept(ContentType.JSON)
-                        .and()
-                        .body(userCredentials)
-                        .log().uri()
-                        .log().method()
-                        .log().headers()
-                        .log().body()
+                        spec(SpecUtils.requestSpec(userCredentials))
                 .when()
                         .post("/login")
                 .then()
-                        .log().all()
-                        .statusCode(200)
-                        .time(lessThan(2000L))
-                        .and()
+                        .spec(SpecUtils.responseSpec_OK())
                         .body("message", equalTo("Success"))
-                        .and()
                         .body(matchesJsonSchemaInClasspath("responseSchema/loginAPIResponseSchema.json"));
 
 
